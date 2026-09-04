@@ -1,0 +1,62 @@
+cff-version: 1.2.0
+message: >
+  If you use this software in your research, please cite it using the metadata below.
+title: "Wolken-Modul: interactive Grundner et al. 2024 cloud-cover diagnostic"
+abstract: >
+  Interactive live diagnosis of the Grundner et al. (2024, JAMES) symbolic-
+  regression cloud-cover equation, ported 1:1 from GenesisAeon's TheorieArbeit
+  Wolken-Modul.md and its verified DYAMOND coefficients (R^2 = 0.94, 11
+  trainable parameters). Implements all three additive terms (I1, I2, I3)
+  plus the paper's physical constraints (PC1-PC3), explicitly labelled as a
+  diagnostic closure, not a forecast.
+version: "0.1.0"
+date-released: "2026-09-04"
+license: MIT
+repository-code: "https://github.com/GenesisAeon/wolken"
+keywords:
+  - cloud cover
+  - symbolic regression
+  - climate physics
+  - DYAMOND
+  - GenesisAeon
+authors:
+  - name: "MOR Research Collective / GenesisAeon"
+    email: "joberoemer@gmail.com"
+references:
+  - type: article
+    title: "Data-Driven Equation Discovery of a Cloud Cover Parameterization"
+    authors:
+      - family-names: Grundner
+        given-names: Arthur
+      - family-names: Beucler
+        given-names: Tom
+      - family-names: Gentine
+        given-names: Pierre
+      - family-names: Iglesias-Suarez
+        given-names: Fabian
+      - family-names: Giorgetta
+        given-names: Marco A.
+      - family-names: Eyring
+        given-names: Veronika
+    journal: "Journal of Advances in Modeling Earth Systems"
+    volume: 16
+    issue: 3
+    year: 2024
+    doi: "10.1029/2023MS003763"
+  - type: article
+    title: "Large-eddy simulation in an anelastic framework with closed water and entropy balances"
+    authors:
+      - family-names: Pressel
+        given-names: Kyle G.
+      - family-names: Kaul
+        given-names: Colleen M.
+      - family-names: Schneider
+        given-names: Tapio
+      - family-names: Tan
+        given-names: Zhihong
+      - family-names: Mishra
+        given-names: Siddhartha
+    journal: "Journal of Advances in Modeling Earth Systems"
+    volume: 7
+    year: 2015
+    doi: "10.1002/2015MS000496"

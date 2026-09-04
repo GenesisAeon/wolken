@@ -1,0 +1,28 @@
+{
+  "title": "Wolken-Modul — interactive Grundner et al. 2024 cloud-cover diagnostic",
+  "description": "<p>Interactive live diagnosis of the Grundner et al. (2024, JAMES) symbolic-regression cloud-cover equation, ported 1:1 from GenesisAeon's TheorieArbeit Wolken-Modul.md and its independently verified DYAMOND coefficients (R^2 = 0.94, 11 trainable parameters) -- all nine coefficients plus epsilon, RH-bar and T-bar cross-checked against the primary-source PDF, not invented. Implements all three additive terms (I1, I2, I3) plus the paper's physical constraints (PC1-PC3), explicitly labelled in-app as a diagnostic closure, not a forecast. Part of the <strong>GenesisAeon</strong> interactive-sandbox series.</p>",
+  "creators": [
+    {
+      "name": "Römer, Johann",
+      "affiliation": "Independent Researcher / MOR Research Collective"
+    }
+  ],
+  "license": "MIT",
+  "upload_type": "software",
+  "access_right": "open",
+  "version": "0.1.0",
+  "keywords": [
+    "GenesisAeon",
+    "cloud cover",
+    "symbolic regression",
+    "climate physics",
+    "DYAMOND",
+    "interactive sandbox",
+    "open-science"
+  ],
+  "communities": [
+    {
+      "identifier": "genesisaeon"
+    }
+  ]
+}
