@@ -9,7 +9,7 @@ abstract: >
   trainable parameters). Implements all three additive terms (I1, I2, I3)
   plus the paper's physical constraints (PC1-PC3), explicitly labelled as a
   diagnostic closure, not a forecast.
-version: "0.1.0"
+version: "0.2.0"
 date-released: "2026-09-04"
 license: MIT
 repository-code: "https://github.com/GenesisAeon/wolken"

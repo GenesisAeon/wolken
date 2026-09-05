@@ -1,0 +1,16 @@
+# Wolken
+
+> Live-Diagnose der Grundner et al. (2024, JAMES) Wolkenbedeckungsgleichung f(RH,T,∂zRH,qc,qi) = I1+I2+I3. Alle 9 Koeffizienten + ε 1:1 aus der Publikation verifiziert (gegen den Original-PDF gegengelesen), inklusive PC1–PC3-Randbedingungen (u.a. RH-Floor nach Gleichung 11).
+
+Referenzfall Stratocumulus liefert 91,7 % Wolkenbedeckung — exakt der Wert, den das eigene Testsuite-Assertion vorgibt.
+
+## Quellen
+- Grundner, A. et al. (2024). Journal of Advances in Modeling Earth Systems (JAMES).
+
+## Maschinenlesbar
+- [context.json](/context.json)
+- Schema: https://github.com/GenesisAeon/apps-hub/blob/main/docs/ai-context-schema.md
+
+## Ökosystem
+- Teil der GenesisAeon Apps-Hub-Reihe: https://github.com/GenesisAeon/apps-hub
+- Theoriearbeit: D:\mandala\TheorieArbeit\Wolken-Modul.md (ecosystem-intern, nicht öffentlich verlinkt)

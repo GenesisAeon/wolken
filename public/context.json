@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0.0",
+  "generated": "2026-09-05",
+  "app": {
+    "id": "wolken",
+    "title": "Wolken",
+    "kind": "mechanik",
+    "live_url": "https://wolken-seven.vercel.app",
+    "repo_url": "https://github.com/GenesisAeon/wolken",
+    "llms_txt_url": "https://wolken-seven.vercel.app/llms.txt"
+  },
+  "source_package": {
+    "name": "Wolken-Modul (cloud-cover formalization)",
+    "package_id": null,
+    "repo_url": null,
+    "ported_note": "Coefficients copied 1:1 from Wolken-Modul.md and verified against the original Grundner et al. 2024 JAMES PDF via pdftotext (2026-09-02)."
+  },
+  "primary_sources": [
+    { "authors": "Grundner, A. et al.", "year": 2024, "title": "Data-driven equation for cloud cover", "journal": "Journal of Advances in Modeling Earth Systems (JAMES)", "doi": null }
+  ],
+  "verified_quantities": [
+    { "name": "a1", "value": 0.4435, "source": "Grundner et al. 2024" },
+    { "name": "a2", "value": 1.1593, "source": "Grundner et al. 2024" },
+    { "name": "a3", "value": -0.0145, "unit": "K^-1", "source": "Grundner et al. 2024" },
+    { "name": "a4", "value": 4.06, "source": "Grundner et al. 2024" },
+    { "name": "a5", "value": 0.0013176, "unit": "K^-2", "source": "Grundner et al. 2024" },
+    { "name": "a6", "value": 584.8036, "unit": "m", "source": "Grundner et al. 2024" },
+    { "name": "a7", "value": 2.0, "unit": "km^-1", "source": "Grundner et al. 2024" },
+    { "name": "a8", "value": 1.1573, "unit": "mg/kg", "source": "Grundner et al. 2024" },
+    { "name": "a9", "value": 0.3073, "unit": "mg/kg", "source": "Grundner et al. 2024" },
+    { "name": "epsilon", "value": 1.06, "source": "Grundner et al. 2024" },
+    { "name": "rhBar", "value": 0.6025, "source": "Grundner et al. 2024" },
+    { "name": "tBar", "value": 257.06, "unit": "K", "source": "Grundner et al. 2024" },
+    { "name": "reference_case_stratocumulus_pct", "value": 91.7, "unit": "percent cloud cover", "source": "own test suite assertion, matches live UI output" }
+  ],
+  "framework_overlay": { "used": false, "terms": [] },
+  "disclaimer": "Alle Koeffizienten stammen 1:1 aus Grundner et al. 2024, gegengelesen am Original-PDF. Keine eigenen Fits."
+}
