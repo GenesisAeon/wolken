@@ -1,6 +1,6 @@
 {
-  "schema_version": "1.0.0",
-  "generated": "2026-09-05",
+  "schema_version": "1.2.0",
+  "generated": "2026-09-06",
   "app": {
     "id": "wolken",
     "title": "Wolken",
@@ -33,6 +33,32 @@
     { "name": "tBar", "value": 257.06, "unit": "K", "source": "Grundner et al. 2024" },
     { "name": "reference_case_stratocumulus_pct", "value": 91.7, "unit": "percent cloud cover", "source": "own test suite assertion, matches live UI output" }
   ],
+  "tipping": {
+    "kind": "undefined",
+    "value": null,
+    "unit": null,
+    "derived_from": "Grundner et al. 2024 is a diagnostic regression for cloud cover, not a bistable or threshold system -- there is no tipping point to declare.",
+    "defined": false,
+    "origin": "undefined"
+  },
+  "regen": {
+    "kind": "undefined",
+    "value": null,
+    "unit": null,
+    "derived_from": "No relaxation/recovery concept applies to a diagnostic (non-prognostic) regression equation.",
+    "defined": false,
+    "origin": "undefined"
+  },
+  "entropy_bg": {
+    "kind": "undefined",
+    "value": null,
+    "unit": null,
+    "derived_from": "a1-a9/epsilon/rhBar/tBar are regression coefficients, not an energetic or radiative background quantity -- none is reported in the source paper for this slot.",
+    "defined": false,
+    "origin": "undefined"
+  },
+  "comparable": false,
+  "formula_ref": "grundner.ts evaluateGrundner(): f(RH,T,dzRH,qc,qi) = I1+I2+I3, diagnostic closure, not prognostic",
   "framework_overlay": { "used": false, "terms": [] },
   "disclaimer": "Alle Koeffizienten stammen 1:1 aus Grundner et al. 2024, gegengelesen am Original-PDF. Keine eigenen Fits."
 }
