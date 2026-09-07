@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { formatDe } from "@/lib/format";
 import { useTerms } from "@/lib/store";
+import { useLocale } from "@/lib/i18n/locale";
 
 export function CcReadout() {
+  const { t } = useLocale();
   const { cc, pc2Applied } = useTerms();
   const [shown, setShown] = useState(cc);
   const current = useRef(cc);
@@ -51,11 +53,11 @@ export function CcReadout() {
         </p>
         {pc2Applied ? (
           <p className="mt-2 text-sm text-cloud/65">
-            Kondensatfrei — physikalische Randbedingung PC2
+            {t.pc2Note}
           </p>
         ) : (
           <p className="mt-2 text-sm text-cloud/65">
-            Diagnostische Schließung · nicht prognostisch
+            {t.diagnosticNote}
           </p>
         )}
       </div>

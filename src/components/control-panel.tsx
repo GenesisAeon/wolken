@@ -10,20 +10,25 @@ import { ParamSlider } from "./param-slider";
 import { TermMeter } from "./term-meter";
 import { FormulaPanel } from "./formula-panel";
 import { I1Field } from "./i1-field";
+import { LocaleSwitch } from "@/components/locale-switch";
+import { useLocale } from "@/lib/i18n/locale";
 
 export function ControlPanel() {
+  const { t } = useLocale();
   const cloud = useCloud();
 
   return (
     <aside className="flex flex-col gap-5 bg-bg px-5 py-5 lg:h-full lg:min-h-0 lg:overflow-y-auto lg:px-6 lg:py-6">
       <header className="flex flex-col gap-1">
-        <p className="text-2xs font-medium uppercase tracking-caps text-muted">
-          𝔉<sub>A</sub> · Wolken-Modul
-        </p>
-        <h1 className="font-serif text-3xl tracking-tight text-fg">Wolken</h1>
-        <p className="text-sm leading-relaxed text-muted">
-          Live-Diagnose der Grundner-Gleichung. Fünf Größen, drei Terme, R² = 0,94.
-        </p>
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <p className="text-2xs font-medium uppercase tracking-caps text-muted">
+            {t.eyebrowPrefix}
+            <sub>A</sub> · {t.eyebrow}
+          </p>
+          <LocaleSwitch />
+        </div>
+        <h1 className="font-serif text-3xl tracking-tight text-fg">{t.title}</h1>
+        <p className="text-sm leading-relaxed text-muted">{t.lead}</p>
       </header>
 
       <div className="-mx-1 flex gap-1.5 overflow-x-auto px-1 pb-1">
@@ -47,7 +52,7 @@ export function ControlPanel() {
 
       <div className="flex flex-col gap-4 rounded-xl bg-surface p-4 shadow-panel">
         <ParamSlider
-          label="Relative Feuchte"
+          label={t.rhLabel}
           symbol="RH"
           unit="%"
           value={cloud.rh}
@@ -60,7 +65,7 @@ export function ControlPanel() {
           onChange={(v) => cloud.setField("rh", v)}
         />
         <ParamSlider
-          label="Temperatur"
+          label={t.tLabel}
           symbol="T"
           unit="K"
           value={cloud.t}
@@ -73,7 +78,7 @@ export function ControlPanel() {
           onChange={(v) => cloud.setField("t", v)}
         />
         <ParamSlider
-          label="Vertikaler RH-Gradient"
+          label={t.dzRhLabel}
           symbol="∂zRH"
           unit="km⁻¹"
           value={cloud.dzRh}
@@ -86,7 +91,7 @@ export function ControlPanel() {
           onChange={(v) => cloud.setField("dzRh", v)}
         />
         <ParamSlider
-          label="Wolkenwasser"
+          label={t.qcLabel}
           symbol="qc"
           unit="mg/kg"
           value={cloud.qc}
@@ -99,7 +104,7 @@ export function ControlPanel() {
           onChange={(v) => cloud.setField("qc", v)}
         />
         <ParamSlider
-          label="Wolkeneis"
+          label={t.qiLabel}
           symbol="qi"
           unit="mg/kg"
           value={cloud.qi}
@@ -119,34 +124,30 @@ export function ControlPanel() {
 
       <div className="flex items-center justify-between gap-3 rounded-xl bg-surface px-4 py-3 shadow-panel">
         <div className="flex min-w-0 flex-col">
-          <span className="text-sm text-fg">PC3-Untergrenze</span>
-          <span className="text-xs text-muted">RH-Floor nach Gleichung 11</span>
+          <span className="text-sm text-fg">{t.pc3Title}</span>
+          <span className="text-xs text-muted">{t.pc3Hint}</span>
         </div>
         <Switch
           checked={cloud.enforcePc3}
           onCheckedChange={cloud.setEnforcePc3}
-          aria-label="PC3-Untergrenze"
+          aria-label={t.pc3Aria}
         />
       </div>
 
       <div className="flex gap-2">
         <Button variant="ghost" className="flex-1" onClick={() => cloud.applyPreset("sc")}>
           <RotateCcw className="size-4" />
-          Reset
+          {t.reset}
         </Button>
         <Button variant="ghost" className="flex-1" onClick={cloud.randomize}>
           <Dice5 className="size-4" />
-          Zufall
+          {t.random}
         </Button>
       </div>
 
       <FormulaPanel />
 
-      <p className="text-2xs leading-relaxed text-subtle">
-        Grundner, Beucler, Gentine, Eyring (2024). Data-Driven Equation Discovery of a
-        Cloud Cover Parameterization. <em>JAMES</em> 16, e2023MS003763. Symbolische
-        Regression auf coarse-grained DYAMOND-Daten, 11 Parameter.
-      </p>
+      <p className="text-2xs leading-relaxed text-subtle">{t.citation}</p>
     </aside>
   );
 }

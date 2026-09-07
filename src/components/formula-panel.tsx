@@ -4,6 +4,7 @@ import { COEFF, formatSigned } from "@/lib/grundner";
 import { formatDe } from "@/lib/format";
 import { useCloud, useTerms } from "@/lib/store";
 import { cn } from "@/lib/utils";
+import { useLocale } from "@/lib/i18n/locale";
 
 function Coeff({ name, value, unit }: { name: string; value: string; unit?: string }) {
   return (
@@ -18,9 +19,10 @@ function Coeff({ name, value, unit }: { name: string; value: string; unit?: stri
 }
 
 export function FormulaPanel() {
+  const { t } = useLocale();
   const [open, setOpen] = useState(true);
   const terms = useTerms();
-  const { rh, t, dzRh, qc, qi } = useCloud();
+  const { rh, t: tempK, dzRh, qc, qi } = useCloud();
 
   return (
     <div className="rounded-xl bg-surface shadow-panel">
@@ -74,7 +76,7 @@ export function FormulaPanel() {
                 </span>
               </p>
               <p className="text-subtle">
-                RH = {formatDe(rh * 100, 1)} % · T = {formatDe(t, 1)} K · ∂zRH ={" "}
+                RH = {formatDe(rh * 100, 1)} % · T = {formatDe(tempK, 1)} K · ∂zRH ={" "}
                 {formatDe(dzRh, 2)} km⁻¹
                 <br />
                 q<sub>c</sub> = {formatDe(qc, 2)} · q<sub>i</sub> = {formatDe(qi, 2)} mg/kg
@@ -92,11 +94,7 @@ export function FormulaPanel() {
               <Coeff name="a9" value={String(COEFF.a9)} unit="mg/kg" />
               <Coeff name="ε" value={String(COEFF.eps)} />
             </div>
-            <p className="text-2xs leading-relaxed text-subtle">
-              Koeffizienten 1:1 aus Grundner et al., JAMES 2024, Gl. 10 — DYAMOND-Fit,
-              nicht ERA5-finetuned. C = 100 · clip(f, 0, 1), und C = 0 falls q<sub>c</sub> +
-              q<sub>i</sub> = 0 (PC2).
-            </p>
+            <p className="text-2xs leading-relaxed text-subtle">{t.coeffsNote}</p>
           </div>
         </div>
       </div>
